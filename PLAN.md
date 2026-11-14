@@ -90,7 +90,7 @@ Other ways to measure distance, studied 2026-11-10: more edges from own spells a
 - [x] **In-game check of settings and compartment on Forever:** opened from Options > AddOns, the minimap menu and `/dtt settings`, options change and persist; works well (maintainer, 2026-11-14)
 - [x] **Docs:** README (what you see, limits, settings, commands, YardsToKm note), CHANGELOG, CONTRIBUTING with how to send a `/dtt log` (2026-11-14)
 - [ ] **Regression check on Classic Era** (maintainer); after it, add 1.15.9 on CurseForge and drop "untested" from the README
-- [x] **Yellow label next to the target (2026-11-14):** that's DTTProbe's display (exact + bracket), not this addon. Fix: disable DTTProbe; it's never packaged
+- [x] **Yellow label next to the target (2026-11-14):** that's DTTProbe's display (exact + bracket), not this addon. Fixed: DTTProbe removed from the Forever AddOns folder (source stays in `probe/DTTProbe`); it was never packaged
 - [x] **Release prep:** version 1.0.0, local git repo with one commit, `probe/data/` gitignored (raw SavedVariables), party member names and local paths removed from this plan; remote `git@github.com:jlblancolb/distance-to-target.git` with the personal SSH key, like YardsToKm (2026-11-14)
 - [x] **GitHub release:** repo https://github.com/jlblancolb/distance-to-target (created with gh's second account, jlblancolb, via `GH_TOKEN=$(gh auth token --user jlblancolb)`; the active work account can't create public repos). CI green after fixing luacheck warnings; tag `v1.0.0`, release https://github.com/jlblancolb/distance-to-target/releases/tag/v1.0.0 with `DistanceToTarget-1.0.0.zip` attached by CI (2026-11-14)
 - [ ] **CurseForge:** create the project, upload the GitHub release zip for 1.60.1 (Forever) only (maintainer)
