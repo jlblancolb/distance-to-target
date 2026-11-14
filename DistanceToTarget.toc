@@ -1,0 +1,18 @@
+## Interface: 11509, 16001
+## Title: Distance to Target
+## Notes: Shows how far away your target is, next to the target frame.
+## Author: jlblancolb
+## Version: 1.0.0
+## IconTexture: Interface\Icons\INV_Misc_Spyglass_03
+## AddonCompartmentFunc: DistanceToTarget_OnAddonCompartmentClick
+## AddonCompartmentFuncOnEnter: DistanceToTarget_OnAddonCompartmentEnter
+## AddonCompartmentFuncOnLeave: DistanceToTarget_OnAddonCompartmentLeave
+## SavedVariables: DistanceToTargetDB, DistanceToTargetLog
+
+libs\LibStub\LibStub.lua
+libs\CallbackHandler-1.0\CallbackHandler-1.0.lua
+libs\LibRangeCheck-3.0\LibRangeCheck-3.0.lua
+Estimator.lua
+Checks.lua
+DistanceToTarget.lua
+Options.lua

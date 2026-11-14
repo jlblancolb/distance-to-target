@@ -1,0 +1,16 @@
+package-as: DistanceToTarget
+
+ignore:
+  - tests
+  - scripts
+  - tools
+  - probe
+  - dist
+  - PLAN.md
+  - CONTRIBUTING.md
+
+enable-nolib-creation: no
+
+manual-changelog:
+  filename: CHANGELOG.md
+  markup-type: markdown

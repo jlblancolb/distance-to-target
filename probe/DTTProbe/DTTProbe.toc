@@ -1,0 +1,12 @@
+## Interface: 11509, 16001
+## Title: DistanceToTarget Probe
+## Notes: Throwaway test: which range checks work on your target, in and out of combat.
+## Author: jlblancolb
+## Version: 0.0.1-probe
+## SavedVariables: DTTProbeDB
+
+libs\LibStub\LibStub.lua
+libs\CallbackHandler-1.0\CallbackHandler-1.0.lua
+libs\LibRangeCheck-3.0\LibRangeCheck-3.0.lua
+DTTProbe.lua
+Recorder.lua
