@@ -2,8 +2,6 @@
 
 **How far away is your target?** Distance to Target shows it right next to the target frame, all the time, in and out of combat.
 
-Built for **WoW Forever**.
-
 ## What you see
 
 | Text | Meaning |
@@ -22,7 +20,7 @@ Prefer metres? Install **Yards to Kilometers** and the text is converted automat
 
 The game doesn't tell addons the exact distance to most units. It only says yes or no to "is this unit within N yards?" for items, your spells, and the follow and trade distances. Distance to Target asks all of them, ten times a second, and combines the answers with your own position as you move. That turns a vague "between 25 and 30 yards" into a single number.
 
-Measured on Forever against NPCs whose real position the game reveals: about half a yard off typically, within 2 yards 90% of the time.
+Measured in game against NPCs whose real position the game reveals: about half a yard off typically, within 2 yards 90% of the time.
 
 **Honest limits**
 
