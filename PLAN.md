@@ -2,7 +2,7 @@
 
 Goal: show how far away your current target (NPC or player) is, next to the target frame, all the time, in yards. Built for WoW Forever first (Mainline UI, interface `16001`, client 1.60.1) and loading on Classic Era too (`11509`), same as YardsToKm.
 
-Status: MVP and 1.0 features done and checked on Forever 2026-11-14. 1.0.0 ready 2026-11-14; waiting on the GitHub repo, then publish. Classic Era check still to do.
+Status: MVP and 1.0 features done and checked on Forever 2026-11-14. 1.0.0 released on GitHub 2026-11-14 (Forever); CurseForge upload and Classic Era check left.
 
 ## 0. Decisions
 
@@ -92,7 +92,8 @@ Other ways to measure distance, studied 2026-11-10: more edges from own spells a
 - [ ] **Regression check on Classic Era** (maintainer); after it, add 1.15.9 on CurseForge and drop "untested" from the README
 - [x] **Yellow label next to the target (2026-11-14):** that's DTTProbe's display (exact + bracket), not this addon. Fix: disable DTTProbe; it's never packaged
 - [x] **Release prep:** version 1.0.0, local git repo with one commit, `probe/data/` gitignored (raw SavedVariables), party member names and local paths removed from this plan; remote `git@github.com:jlblancolb/distance-to-target.git` with the personal SSH key, like YardsToKm (2026-11-14)
-- [~] **Publish:** the work gh account can't create public repos (EMU), and SSH can't create repos. Maintainer: create an empty public repo `jlblancolb/distance-to-target` (no README/license), then agent pushes `main`, tags `v1.0.0` and creates the GitHub release (CI attaches the zip). CurseForge project + upload of `dist/DistanceToTarget-1.0.0.zip` for **1.60.1 (Forever) only**; Classic Era (1.15.9) added after its check (maintainer, decided 2026-11-14)
+- [x] **GitHub release:** repo https://github.com/jlblancolb/distance-to-target (created with gh's second account, jlblancolb, via `GH_TOKEN=$(gh auth token --user jlblancolb)`; the active work account can't create public repos). CI green after fixing luacheck warnings; tag `v1.0.0`, release https://github.com/jlblancolb/distance-to-target/releases/tag/v1.0.0 with `DistanceToTarget-1.0.0.zip` attached by CI (2026-11-14)
+- [ ] **CurseForge:** create the project, upload the GitHub release zip for 1.60.1 (Forever) only (maintainer)
 
 ## Later ideas
 
