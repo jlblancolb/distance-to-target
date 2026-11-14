@@ -89,9 +89,10 @@ Other ways to measure distance, studied 2026-11-10: more edges from own spells a
 - [x] **Load error after /reload (2026-11-14):** `DistanceToTarget.lua:405: attempt to call a nil value` on ADDON_LOADED, because WoW reads the TOC file list only at game start, so the new `Options.lua` wasn't loaded. The main file now has fallbacks (settings via `/dtt` still work, `/dtt settings` says to restart); test added. Lesson: any update that adds a file needs a full game restart
 - [x] **In-game check of settings and compartment on Forever:** opened from Options > AddOns, the minimap menu and `/dtt settings`, options change and persist; works well (maintainer, 2026-11-14)
 - [x] **Docs:** README (what you see, limits, settings, commands, YardsToKm note), CHANGELOG, CONTRIBUTING with how to send a `/dtt log` (2026-11-14)
-- [ ] **Regression check on Classic Era** (maintainer)
+- [ ] **Regression check on Classic Era** (maintainer); after it, add 1.15.9 on CurseForge and drop "untested" from the README
+- [x] **Yellow label next to the target (2026-11-14):** that's DTTProbe's display (exact + bracket), not this addon. Fix: disable DTTProbe; it's never packaged
 - [x] **Release prep:** version 1.0.0, local git repo with one commit, `probe/data/` gitignored (raw SavedVariables), party member names and local paths removed from this plan; remote `git@github.com:jlblancolb/distance-to-target.git` with the personal SSH key, like YardsToKm (2026-11-14)
-- [~] **Publish:** the work gh account can't create public repos (EMU), and SSH can't create repos. Maintainer: create an empty public repo `jlblancolb/distance-to-target` (no README/license), then agent pushes `main`, tags `v1.0.0` and creates the GitHub release (CI attaches the zip). CurseForge project + upload of `dist/DistanceToTarget-1.0.0.zip` for 1.60.1 and 1.15.9 (maintainer)
+- [~] **Publish:** the work gh account can't create public repos (EMU), and SSH can't create repos. Maintainer: create an empty public repo `jlblancolb/distance-to-target` (no README/license), then agent pushes `main`, tags `v1.0.0` and creates the GitHub release (CI attaches the zip). CurseForge project + upload of `dist/DistanceToTarget-1.0.0.zip` for **1.60.1 (Forever) only**; Classic Era (1.15.9) added after its check (maintainer, decided 2026-11-14)
 
 ## Later ideas
 
