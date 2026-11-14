@@ -2,6 +2,8 @@
 
 Shows how far away your target is, next to the target frame, all the time, in and out of combat. Built for WoW Forever. The TOC also lists Classic Era, but it hasn't been tested there yet.
 
+Download: [CurseForge](https://www.curseforge.com/wow/addons/distance-to-target) · [GitHub releases](https://github.com/jlblancolb/distance-to-target/releases)
+
 Install [Yards to Kilometers](https://github.com/jlblancolb/YardsToKm) too if you'd rather read metres: it converts this addon's text automatically.
 
 ## What you see
