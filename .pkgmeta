@@ -8,6 +8,7 @@ ignore:
   - dist
   - PLAN.md
   - CONTRIBUTING.md
+  - media
 
 enable-nolib-creation: no
 
