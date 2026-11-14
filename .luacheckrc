@@ -24,4 +24,5 @@ files["Options.lua"] = {
 files["tools"] = { globals = { "DTTProbeDB" }, read_globals = { "arg" } }
 
 -- Tests install WoW API mocks as globals.
-files["tests"] = { allow_defined_top = true, ignore = { "11", "212" } }
+-- Mocks shadow self, set globals other files read, and use Lua 5.2 table.unpack guards.
+files["tests"] = { allow_defined_top = true, ignore = { "11", "131", "143", "212", "311", "431" } }

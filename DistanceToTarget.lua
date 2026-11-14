@@ -352,7 +352,7 @@ local function Status()
     else
         Print("target frame replaced or hidden by another addon: shown below the screen centre (/dtt unlock to move)")
     end
-    local x, y = PlayerPosition()
+    local x = PlayerPosition()
     Print(x and "your position: known (filter on)" or "your position: hidden here (ranges only)")
     Print(string.format("%d spells with a range", Checks.SpellCount()))
     if UnitExists("target") then
@@ -370,7 +370,8 @@ local function ListChecks()
     end
     Checks.Measure("target", TargetIsHostile(), InCombatLockdown(), function(kind, id, range, inRange)
         Print(string.format("%s %s (%s yd): %s%s", kind == "conflict" and "spell" or kind, tostring(id),
-            tostring(range), inRange and "in" or "out", kind == "conflict" and " (ignored: contradicts the others)" or ""))
+            tostring(range), inRange and "in" or "out",
+            kind == "conflict" and " (ignored: contradicts the others)" or ""))
     end)
 end
 
