@@ -2,7 +2,7 @@
 
 Goal: show how far away your current target (NPC or player) is, next to the target frame, all the time, in yards. Built for WoW Forever first (Mainline UI, interface `16001`, client 1.60.1) and loading on Classic Era too (`11509`), same as YardsToKm.
 
-Status: MVP and 1.0 features done and checked on Forever 2026-11-14. 1.0.0 released 2026-11-14; Classic Era check still to do.
+Status: MVP and 1.0 features done and checked on Forever 2026-11-14. 1.0.0 ready 2026-11-14; waiting on the GitHub repo, then publish. Classic Era check still to do.
 
 ## 0. Decisions
 
@@ -90,7 +90,8 @@ Other ways to measure distance, studied 2026-11-10: more edges from own spells a
 - [x] **In-game check of settings and compartment on Forever:** opened from Options > AddOns, the minimap menu and `/dtt settings`, options change and persist; works well (maintainer, 2026-11-14)
 - [x] **Docs:** README (what you see, limits, settings, commands, YardsToKm note), CHANGELOG, CONTRIBUTING with how to send a `/dtt log` (2026-11-14)
 - [ ] **Regression check on Classic Era** (maintainer)
-- [ ] **Publish:** GitHub release + CurseForge with 1.60.1 and 1.15.9
+- [x] **Release prep:** version 1.0.0, local git repo with one commit, `probe/data/` gitignored (raw SavedVariables), party member names and local paths removed from this plan; remote `git@github.com:jlblancolb/distance-to-target.git` with the personal SSH key, like YardsToKm (2026-11-14)
+- [~] **Publish:** the work gh account can't create public repos (EMU), and SSH can't create repos. Maintainer: create an empty public repo `jlblancolb/distance-to-target` (no README/license), then agent pushes `main`, tags `v1.0.0` and creates the GitHub release (CI attaches the zip). CurseForge project + upload of `dist/DistanceToTarget-1.0.0.zip` for 1.60.1 and 1.15.9 (maintainer)
 
 ## Later ideas
 
