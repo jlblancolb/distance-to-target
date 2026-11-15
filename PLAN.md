@@ -2,7 +2,7 @@
 
 Goal: show how far away your current target (NPC or player) is, next to the target frame, all the time, in yards. Built for WoW Forever first (Mainline UI, interface `16001`, client 1.60.1) and loading on Classic Era too (`11509`), same as YardsToKm.
 
-Status: MVP and 1.0 features done and checked on Forever 2026-11-14. 1.0.0 released on GitHub and CurseForge 2026-11-14 (Forever). Left: Classic Era check, screenshots, exact distance on a party member.
+Status: MVP and 1.0 features done and checked on Forever 2026-11-14. 1.0.0 released on GitHub and CurseForge 2026-11-14 (Forever). Left: Classic Era check, screenshots, enemy player check.
 
 ## 0. Decisions
 
@@ -58,7 +58,8 @@ Other ways to measure distance, studied 2026-11-10: more edges from own spells a
 - [x] **Wrong distance at Shadow Bolt range:** found with `/dtt log` (`probe/data/2026-11-14-dtt-log.lua`, 1044 rows, Kolkar Stormers/Wranglers, The Barrens). A 20 yd spell, almost certainly Health Funnel (it targets the pet), said "in" with the target 37+ yd away, so lo > hi and the estimate sat at ~25–27 yd. Fix: skip pet-only spells by name and helpful-only spells on hostile targets, read spells last and ignore any that contradict items/interact by > 1.5 yd (off after 5 contradictions). Replay of the log: contradictory rows 218 → 0 (2026-11-14)
 - [x] **Corpse bug, second shape:** corpses say "in" to the 5 and 10 yd items and "out" to every larger one, which showed `> 5 yd`; contradicting item sets are now ignored (2026-11-14)
 - [x] **Probe logs from 2026-11-13/14 (Orc Warlock 15–16, Durotar and The Barrens, 6000 trace rows, 2000+ in combat):** exact distance only for party members (two party members: 282/282 samples), never for any NPC or enemy. Spells answer plain true/false in combat (Immolate, Corruption, Drain Life). No data from that run explains the Shadow Bolt case: the trace has no individual checks and `/dtt log` was off (2026-11-14)
-- [ ] **Still unchecked:** dungeon, enemy player, party member (MVP is installed; check when it comes up)
+- [x] **Dungeon and party member (2026-11-15, from `probe/data/2026-11-14-dtt-log3.lua`, 18718 updates over several sessions on 2026-11-14, Orc Warlock, Durotar/Barrens + a 37 min dungeon run in a party):** 0 contradictory rows. In the dungeon the player position is hidden and enemy names are secret (`?`); the plain bracket shows as designed (`< 5`, `5 - 8`, `8 - 10`, `10 - 15` … `36 - 40 yd`), in and out of combat. Party members there get interact/friendly-spell brackets (`< 8 yd`, `8 - 28 yd`). Corpses in the dungeon show `8 - 28 yd` (only interact answers). Exact distance also showed on hostile Vile Familiars and Mottled Boars
+- [ ] **Still unchecked:** enemy player (check when it comes up)
 - [x] **Run the probe on Forever:** hostile and friendly NPCs and a party member, in and out of combat (2026-11-10 to 2026-11-14, maintainer)
 - [x] **Spell range in combat:** plain true/false on hostile targets in combat (2026-11-14)
 - [x] **Item range in combat:** items and `CheckInteractDistance` work on hostile targets in combat; blocked on friendly targets in combat (2026-11-10)
@@ -80,7 +81,7 @@ Other ways to measure distance, studied 2026-11-10: more edges from own spells a
 - [x] **Combat safety (2026-11-10):** no protected calls in combat, never move or parent to `TargetFrame` in combat; guards for secret values and forbidden frames (lessons from YardsToKm)
 - [x] **Tests:** `tests/estimator.lua` (edges, text, filter on a simulated walk), `tests/addon.lua` (mocked world: hostile, melee, far, secret answers, instance, friendly in combat, slash, anchor after combat), `tests/yardstokm.lua` (every text shape through the real YardsToKm). All pass under fengari; lua5.1/luacheck not installed locally, CI runs them (2026-11-10)
 - [x] **In-game check on Forever (2026-11-14, `probe/data/2026-11-14-dtt-log2.lua`, 359 rows):** Orc Warlock in The Barrens, hostile mobs from melee to 100 yd, in and out of combat, a corpse, a friendly NPC. 0 contradictory rows and 0 ignored spells; Health Funnel no longer used. Mob at Shadow Bolt range (35 yd item in, 30 out, Shadow Bolt in) shows 33–35 yd; 36–40 yd shows 37–39; 40–45 shows 42–44; beyond that `> 45 yd`. Corpse shows `< 8 yd`, friendly NPC `> 28 yd`. Earlier checks: unlock/drag/lock and the free spot work (maintainer)
-- [ ] **Exact distance on a party member:** not in the log yet (no party member targeted). Should show whole yards with no `~` (maintainer, whenever grouped)
+- [x] **Exact distance on a party member:** party member in the open world gave exact distance (117 rows), shown as `5 yd`/`6 yd` with no `~` and `< 5 yd` up close; only seen within 6 yd (2026-11-15, from the log above)
 
 ## 3. 1.0 release
 
@@ -101,3 +102,4 @@ Other ways to measure distance, studied 2026-11-10: more edges from own spells a
 
 - [ ] **Focus and mouseover:** same display for other units
 - [ ] **Nameplate text:** distance on the target's nameplate
+- [ ] **Friendly NPC while you're in combat:** no check answers, so the text is blank (seen on a Lazy Peon, 17 rows). Could show `?` instead; blank is fine for now
