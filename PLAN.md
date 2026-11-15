@@ -95,6 +95,7 @@ Other ways to measure distance, studied 2026-11-10: more edges from own spells a
 - [x] **Release prep:** version 1.0.0, local git repo with one commit, `probe/data/` gitignored (raw SavedVariables), party member names and local paths removed from this plan; remote `git@github.com:jlblancolb/distance-to-target.git` with the personal SSH key, like YardsToKm (2026-11-14)
 - [x] **GitHub release:** repo https://github.com/jlblancolb/distance-to-target (created with gh's second account, jlblancolb, via `GH_TOKEN=$(gh auth token --user jlblancolb)`; the active work account can't create public repos). CI green after fixing luacheck warnings; tag `v1.0.0`, release https://github.com/jlblancolb/distance-to-target/releases/tag/v1.0.0 with `DistanceToTarget-1.0.0.zip` attached by CI (2026-11-14)
 - [x] **CurseForge:** project https://www.curseforge.com/wow/addons/distance-to-target (pending approval on 2026-11-14), set up with the description and icon from `media/`, 1.0.0 for 1.60.1 (Forever) only (maintainer, 2026-11-14)
+- [x] **CurseForge auto-upload:** same setup as YardsToKm. Project ID 1805038; CurseForge Source = GitHub repo, packages new tagged commits only (maintainer); GitHub push webhook to `curseforge.com/api/projects/1805038/package` with the same account API token as YardsToKm, ping 200 OK (2026-11-15). Future releases: bump the TOC version, tag `vX.Y.Z`, push the tag. Don't re-push `v1.0.0` (uploaded by hand)
 
 - [ ] **Screenshots for CurseForge:** hero shot, melee, settings page, minimap menu; maintainer takes them, agent crops into `media/`
 
